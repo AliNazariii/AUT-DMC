@@ -19,7 +19,4 @@ print(len(to_delete))
 print(to_delete)
 df.drop(to_delete)
 
-df.to_csv('cleaned.csv')
-
-
-
+df.to_csv('cleaned.csv', index=False)
