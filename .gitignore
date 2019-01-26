@@ -1,2 +1,7 @@
 venv/
 .idea/
+data.csv
+cleaned.csv
+test.csv
+task/
+.DS_Store
