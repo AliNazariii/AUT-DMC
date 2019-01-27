@@ -27,9 +27,14 @@ df = pd.read_csv('cleaned.csv')
 print(df.head())
 print(df.describe())
 
-flight_count = np.zeros((76, 76, 20))
+flight_count = np.zeros((731, 76, 76, 20))
+
+# 1395 / 04 / 07
 
 for index, row in df.iterrows():
-    flight_count[int(row['FROM']) - 1][int(row['TO']) - 1][int(row['AL']) - 1] += 1.0
-    print(index)
+    log_date = ((int(row['Log_Date'][2:4]) - 1) * 366) + ((int(row['Log_Date'][5:7]) > 6) * 186) + int(row['Log_Date'][8:10])
+    # if row['Log_Date'][2:4] == '95':
+    #     log_date = int(row['Log_Date'][2:4]) * + int(row['Log_Date'][2:4])
 
+    flight_count[log_date][int(row['FROM']) - 1][int(row['TO']) - 1][int(row['AL']) - 1] += 1.0
+    print(index)
