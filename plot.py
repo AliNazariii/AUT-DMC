@@ -32,9 +32,14 @@ flight_count = np.zeros((731, 76, 76, 20))
 # 1395 / 04 / 07
 
 for index, row in df.iterrows():
-    log_date = ((int(row['Log_Date'][2:4]) - 1) * 366) + ((int(row['Log_Date'][5:7]) > 6) * 186) + int(row['Log_Date'][8:10])
-    # if row['Log_Date'][2:4] == '95':
-    #     log_date = int(row['Log_Date'][2:4]) * + int(row['Log_Date'][2:4])
+    log_date = int(row['Log_Date'][8:10])
+    if row['Log_Date'][2:4] == '96':
+        log_date += 366
+    if int(row['Log_Date'][5:7]) > 6:
+        log_date += 186
+        log_date += (int(row['Log_Date'][5:7]) - 7) * 30
+    else:
+        log_date += (int(row['Log_Date'][5:7]) - 1) * 31
 
-    flight_count[log_date][int(row['FROM']) - 1][int(row['TO']) - 1][int(row['AL']) - 1] += 1.0
+    flight_count[log_date - 1][int(row['FROM']) - 1][int(row['TO']) - 1][int(row['AL']) - 1] += 1.0
     print(index)
