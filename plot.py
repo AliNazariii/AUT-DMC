@@ -21,7 +21,15 @@ def clean_data(data_frame):
     return data_frame
 
 
-df = pd.read_csv('data.csv')
+# df = pd.read_csv('data.csv')
+# df = clean_data(df)
+df = pd.read_csv('cleaned.csv')
 print(df.head())
 print(df.describe())
-df = clean_data(df)
+
+flight_count = np.zeros((76, 76, 20))
+
+for index, row in df.iterrows():
+    flight_count[int(row['FROM']) - 1][int(row['TO']) - 1][int(row['AL']) - 1] += 1.0
+    print(index)
+
