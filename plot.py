@@ -47,6 +47,20 @@ days = range(731)
 plt.plot(days, flight_count[1][48][66][0:])
 plt.show()
 
+#   ## draw 76*76 subplots like a matrix
+# fig, ax = plt.subplots(nrows=76, ncols=76)
+# for i in range(76):
+#     print(i)
+#     for j in range(76):
+#         if i == j:
+#             plt.subplot(76, 76, (i * 76) + (j + 1))
+#             plt.plot(0, 0)
+#         else:
+#             for k in range(20):
+#                 plt.subplot(76, 76, (i * 76) + (j + 1))
+#                 # plt.plot(days, flight_count[k][i][j][0:])
+#
+# plt.show()
 
 #   ##    subplot test    ##
 # fig, ax = plt.subplots(nrows=8, ncols=8)
