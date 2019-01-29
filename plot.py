@@ -47,3 +47,23 @@ days = range(731)
 plt.plot(days, flight_count[1][48][66][0:])
 plt.show()
 
+
+#   ##    subplot test    ##
+# fig, ax = plt.subplots(nrows=8, ncols=8)
+#
+# x = range(10)
+# y = range(10)
+#
+# plt.subplot(8, 8, 1)
+# plt.plot(x, y)
+#
+# plt.subplot(8, 8, 2)
+# plt.plot(x, y)
+#
+# plt.subplot(8, 8, 3)
+# plt.plot(x, y)
+#
+# plt.subplot(8, 8, 7)
+# plt.plot(x, y)
+#
+# plt.show()
