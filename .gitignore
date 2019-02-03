@@ -3,3 +3,5 @@ venv/
 task/
 .DS_Store
 *.csv
+flight_count.npy
+visualize/
