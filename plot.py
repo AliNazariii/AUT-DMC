@@ -79,10 +79,11 @@ for i in range(76):
     for j in range(76):
         if i != j:
             for k in range(20):
-                color_ascii = chr(k + 65)
-                plt.plot(days, flight_count[k][i][j][0:], color=getattr(color, color_ascii))
-                plt.xlabel('Days')
-                plt.ylabel('Number of requests')
-                plt.title('Flight from ' + str(i + 1) + ' to ' + str(j + 1))
-                plt.savefig('visualize/' + str(i + 1) + '-' + str(j + 1) + '.png')
+                if np.sum(flight_count[k][i][j][0:]) != 0.0:
+                    color_ascii = chr(k + 65)
+                    plt.plot(days, flight_count[k][i][j][0:], color=getattr(color, color_ascii))
+                    plt.xlabel('Days')
+                    plt.ylabel('Number of requests')
+                    plt.title('Flight from ' + str(i + 1) + ' to ' + str(j + 1))
+                    plt.savefig('needed_visualize/' + str(i + 1) + '-' + str(j + 1) + '.png')
             plt.clf()
